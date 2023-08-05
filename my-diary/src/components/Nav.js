@@ -4,7 +4,7 @@ import styles from "./Nav.module.css";
 export default function Nav() {
   return (
     <nav className={styles.nav}>
-      <h1 className={styles.tit}>비밀일기</h1>
+      <h1 className={styles.tit}>다이어리</h1>
       <ul className={styles.list_nav}>
         <li>
           <Link to="/login">로그인</Link>
