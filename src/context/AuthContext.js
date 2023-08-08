@@ -16,7 +16,11 @@ const AuthContextProvider = ({ children }) => {
     user: null,
   });
 
-  return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export { AuthContext, AuthContextProvider };
