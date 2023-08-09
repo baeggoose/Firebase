@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useLogin } from "../../hooks/useLogin";
 import styles from "./Login.module.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { error, isPending, login } = useLogin();
+
   const handledata = (event) => {
     if (event.target.type === "email") {
       setEmail(event.target.value);
@@ -14,7 +17,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
+    login(email, password);
   };
 
   return (
@@ -39,9 +42,13 @@ export default function Login() {
           onChange={handledata}
         />
 
-        <button type="submit" className={styles.btn}>
-          Login
-        </button>
+        {!isPending && (
+          <button type="submit" className={styles.btn}>
+            Login
+          </button>
+        )}
+        {isPending && <strong>로그인 진행중입니다!</strong>}
+        {isPending && <strong>{error}</strong>}
       </fieldset>
     </form>
   );
