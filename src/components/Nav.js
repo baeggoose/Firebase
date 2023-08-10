@@ -5,7 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Nav() {
   const { logout } = useLogout();
-  const { user } = useAuthContext;
+  const { user } = useAuthContext();
 
   return (
     <nav className={styles.nav}>
@@ -23,7 +23,7 @@ export default function Nav() {
         )}
         {user && (
           <li>
-            <strong>환영합니다! {user.diaplayName} 님!</strong>
+            <strong>환영합니다~ {user.displayName}님!</strong>
             <button type="button" onClick={logout}>
               로그아웃
             </button>
