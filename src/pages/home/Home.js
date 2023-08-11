@@ -6,7 +6,7 @@ import styles from "./Home.module.css";
 
 export default function Home() {
   const { user } = useAuthContext();
-  const { documents, error } = useCollection("diary");
+  const { documents, error } = useCollection("diary", ["uid", "==", user.uid]);
 
   return (
     <main className={styles.cont}>
