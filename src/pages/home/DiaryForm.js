@@ -16,7 +16,7 @@ export default function DiaryForm({ uid }) {
 
   useEffect(() => {
     if (response.success) {
-      console.log(response);
+      // console.log(response);
       setTitle("");
       setText("");
     }
